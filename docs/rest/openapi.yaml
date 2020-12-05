@@ -69,6 +69,8 @@ paths:
               properties:
                 userId:
                   type: integer
+                initialSum:
+                  type: integer
               required:
                 - userId
             example:
