@@ -7,7 +7,7 @@ participant Order Service
 participant Notification Service
 
 rect rgb(240, 240, 240)
-Note over User, Billing Service: Ñîçäàíèå ïîëüçîâàòåëÿ
+Note over User, Billing Service: Ð¡Ð¾Ð·Ð´Ð°Ð½Ð¸Ðµ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»Ñ
 User->>User Service: POST /user/register
 activate User Service
 User Service->>Billing Service: POST /billing/createAccount {userId}
@@ -19,7 +19,7 @@ deactivate User Service
 end
 
 rect rgb(240, 240, 240)
-Note over User, Notification Service: Îôîðìëåíèå çàêàçà
+Note over User, Notification Service: ÐžÑ„Ð¾Ñ€Ð¼Ð»ÐµÐ½Ð¸Ðµ Ð·Ð°ÐºÐ°Ð·Ð°
 User->>Order Service: POST /order/create
 activate Order Service
 

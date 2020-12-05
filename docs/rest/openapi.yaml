@@ -1,65 +1,65 @@
 openapi: 3.0.0
 info:
-  title: Синхронное http взаимодействие через rest
+  title: РЎРёРЅС…СЂРѕРЅРЅРѕРµ http РІР·Р°РёРјРѕРґРµР№СЃС‚РІРёРµ С‡РµСЂРµР· rest
   version: 1.0.0
 tags:
   - name: User Service
-    description: Сервис работы с пользователем
+    description: РЎРµСЂРІРёСЃ СЂР°Р±РѕС‚С‹ СЃ РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј
   - name: Order Service
-    description: Сервис заказов
+    description: РЎРµСЂРІРёСЃ Р·Р°РєР°Р·РѕРІ
   - name: Billing Service
-    description: Сервис нотификаций
+    description: РЎРµСЂРІРёСЃ РЅРѕС‚РёС„РёРєР°С†РёР№
   - name: Notification Service
-    description: Сервис уведомлений
+    description: РЎРµСЂРІРёСЃ СѓРІРµРґРѕРјР»РµРЅРёР№
 paths:
   /user/register:
     post:
       tags:
         - "User Service"
-      summary: Создание пользователя
+      summary: РЎРѕР·РґР°РЅРёРµ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
       operationId: registerUser
       requestBody:
         $ref: '#/components/requestBodies/User'
       responses:
         '201':
-          description: Создание прошло успешно
+          description: РЎРѕР·РґР°РЅРёРµ РїСЂРѕС€Р»Рѕ СѓСЃРїРµС€РЅРѕ
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
         '400':
-          description: Неправильный запрос
+          description: РќРµРїСЂР°РІРёР»СЊРЅС‹Р№ Р·Р°РїСЂРѕСЃ
   '/user/{userId}':
     get:
       tags:
         - "User Service"
-      summary: Данные пользователя по id
-      description: Вернуть данные пользователя
+      summary: Р”Р°РЅРЅС‹Рµ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ РїРѕ id
+      description: Р’РµСЂРЅСѓС‚СЊ РґР°РЅРЅС‹Рµ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
       operationId: getUserById
       parameters:
         - name: userId
           in: path
-          description: ID пользователя
+          description: ID РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
           required: true
           schema:
             type: integer
             format: int64
       responses:
         '200':
-          description: Успешный запрос
+          description: РЈСЃРїРµС€РЅС‹Р№ Р·Р°РїСЂРѕСЃ
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
         '400':
-          description: Неправильный запрос
+          description: РќРµРїСЂР°РІРёР»СЊРЅС‹Р№ Р·Р°РїСЂРѕСЃ
         '404':
-          description: Такого пользователя нет
+          description: РўР°РєРѕРіРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ РЅРµС‚
   /billing/createAccount:
     post:
       tags:
         - "Billing Service"
-      summary: Создание аккаунта биллинга
+      summary: РЎРѕР·РґР°РЅРёРµ Р°РєРєР°СѓРЅС‚Р° Р±РёР»Р»РёРЅРіР°
       operationId: createBillingAccount
       requestBody:
         content:
@@ -75,12 +75,12 @@ paths:
               userId: 1
       responses:
         '201':
-          description: Аккаунт создан успешно
+          description: РђРєРєР°СѓРЅС‚ СЃРѕР·РґР°РЅ СѓСЃРїРµС€РЅРѕ
   /billing/withdraw:
     post:
       tags:
         - "Billing Service"
-      summary: Списание денег
+      summary: РЎРїРёСЃР°РЅРёРµ РґРµРЅРµРі
       operationId: billingWithdraw
       requestBody:
         content:
@@ -100,12 +100,12 @@ paths:
               sum: 100500
       responses:
         '201':
-          description: Списание прошло успешно
+          description: РЎРїРёСЃР°РЅРёРµ РїСЂРѕС€Р»Рѕ СѓСЃРїРµС€РЅРѕ
   /order/create:
     post:
       tags:
         - "Order Service"
-      summary: Создание заказа
+      summary: РЎРѕР·РґР°РЅРёРµ Р·Р°РєР°Р·Р°
       operationId: orderCreate
       requestBody:
         content:
@@ -125,14 +125,14 @@ paths:
               sum: 100500
       responses:
         '201':
-          description: Заказ создан успешно
+          description: Р—Р°РєР°Р· СЃРѕР·РґР°РЅ СѓСЃРїРµС€РЅРѕ
         '400':
-          description: Заказ не создан
+          description: Р—Р°РєР°Р· РЅРµ СЃРѕР·РґР°РЅ
   /notification/newOrderSuccess:
     post:
       tags:
         - "Notification Service"
-      summary: Уведомление об успешном создании нового заказа
+      summary: РЈРІРµРґРѕРјР»РµРЅРёРµ РѕР± СѓСЃРїРµС€РЅРѕРј СЃРѕР·РґР°РЅРёРё РЅРѕРІРѕРіРѕ Р·Р°РєР°Р·Р°
       operationId: notificationNewOrderSuccess
       requestBody:
         content:
@@ -149,7 +149,7 @@ paths:
                 - sum
       responses:
         '201':
-          description: Уведомление отправлено
+          description: РЈРІРµРґРѕРјР»РµРЅРёРµ РѕС‚РїСЂР°РІР»РµРЅРѕ
 components:
   schemas:
     User:
@@ -189,7 +189,7 @@ components:
             $ref: '#/components/schemas/User'
           examples:
             sample-user:
-              summary: Пример пользователя
+              summary: РџСЂРёРјРµСЂ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
               value:
                 firstName: Ivan
                 lastName: Ivanov
@@ -202,7 +202,7 @@ components:
             $ref: '#/components/schemas/Order'
           examples:
             sample-user:
-              summary: Пример заказа
+              summary: РџСЂРёРјРµСЂ Р·Р°РєР°Р·Р°
               value:
                 userId: 1
                 sum: 100500
