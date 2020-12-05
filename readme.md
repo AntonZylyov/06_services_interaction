@@ -8,7 +8,5 @@
 
 [Файл с описанием rest интерфейсов](docs/rest/openapi.yaml)
 
-[Эти самые интерфейсы в Swagger](https://petstore.swagger.io/?url=)
-
-
+[Эти самые интерфейсы в Swagger](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/AntonZylyov/06_services_interaction/master/docs/rest/openapi.yaml)
 
