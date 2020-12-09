@@ -76,7 +76,8 @@ channels:
             sum:
               type: integer
           required:
-            - email
+            - userId
+            - sum
         examples:
           - payload:
               userId: 1
