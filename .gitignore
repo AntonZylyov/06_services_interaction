@@ -1,6 +1,0 @@
-.idea
-
-/docker/user_service/src/vendor/
-/docker/billing_service/src/vendor/
-/docker/notification_service/src/vendor/
-/docker/order_service/src/vendor/
